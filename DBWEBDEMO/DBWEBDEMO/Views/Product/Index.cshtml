@@ -1,0 +1,28 @@
+﻿@model IEnumerable<DBWEBDEMO.Models.Product>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@Html.ActionLink("new Product", "Create", "Product")</h2>
+<table class="table">
+    <caption>Product List</caption>
+    <tr><th>Id</th><th>Name</th><th>Action</th></tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.productname</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id })
+                @Html.ActionLink("Details", "Details", new { id = item.id })
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+
+
+        </tr>
+    }
+</table>
+
+
+
